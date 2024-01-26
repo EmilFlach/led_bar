@@ -147,14 +147,14 @@ class ESP32_C3_MINI_1_VIND(Module):
         self.IFs.pwr3v3.get_trait(can_be_decoupled).decouple()
 
         # rc delay circuit on enable pin for startup delay
-        # https://www.espressif.com/sites/default/files/russianDocumentation/esp32-c3-mini-1_datasheet_en.pdf page 24
+        # https://www.espressif.com/sites/default/files/russianDocumentation/esp32-c3-mini-1_datasheet_en.pdf page 24  # noqa: E501
         self.IFs.enable.IFs.signal.connect_via(
             self.NODEs.en_rc_capacitor, self.IFs.pwr3v3.IFs.lv
         )
         self.IFs.enable.get_trait(can_be_pulled).pull(up=True)
 
         # set default boot mode to "SPI Boot mode" (gpio = N.C. or HIGH)
-        # https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf page 25
+        # https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf page 25  # noqa: E501
         self.IFs.gpio[8].get_trait(can_be_pulled).pull(up=True)
         self.IFs.gpio[2].get_trait(can_be_pulled).pull(up=True)
         self.IFs.gpio[9].connect(
