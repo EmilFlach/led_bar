@@ -1,0 +1,47 @@
+(export 
+    (version D)
+    (components
+        (comp
+            (ref D1)
+            (value ColoredLED)
+            (footprint lcsc:LED0603-RD)
+            (tstamp 1)
+            (property
+                (name LCSC)
+                (value C72043))
+            (property
+                (name faebryk_name)
+                (value *.led.led_specialized)))
+        (comp
+            (ref R1)
+            (value 4.7kΩ)
+            (footprint lcsc:R0402)
+            (tstamp 2)
+            (property
+                (name LCSC)
+                (value C25900))
+            (property
+                (name faebryk_name)
+                (value *.led.current_limiting_resistor))))
+    (nets
+        (net
+            (code 1)
+            (name D1-1-R1-1)
+            (node
+                (ref D1)
+                (pin 1))
+            (node
+                (ref R1)
+                (pin 1)))
+        (net
+            (code 2)
+            (name D1-2)
+            (node
+                (ref D1)
+                (pin 2)))
+        (net
+            (code 3)
+            (name R1-2)
+            (node
+                (ref R1)
+                (pin 2)))))
